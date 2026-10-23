@@ -9,11 +9,15 @@
 
     --bg-button-primario: #d97d21;
     --bg-button-secundario: transparent;
-
+    --bg-button-hover-primario: #a6540c91;
+    --bg-button-hover-secundario: #a6530c;
+    
     --bg-caixa-formulario: #787070;
     --bg-input: #e8e8e8;
-
+    
     --bg-overlay: #00000087;
+
+    --cor-foco: #1c1c1c;
 
     /* bordas */
     --borda-button: 0.0625rem solid #d97d21;
@@ -25,7 +29,7 @@
     --cor-texto-button-primario: #ffffff;
     --cor-texto-button-secundario: #d97d21;
 
-    --cor-gradient: radial-gradient(at right, #d97d21 33%, #ffef93 75%);
+    --cor-gradient: radial-gradient(at bottom, #d97d21 33%, #ffef93 65%, #a6540cb0 20%);
 }
 
 /* reset padrões do navegador */
@@ -57,10 +61,10 @@ p{
 }
 
 header{
+    background-color: #aaa8a831;
+    backdrop-filter: blur(.30rem);
     padding: .5rem 1rem;
-    background-color: var(--bg-secundario);
-    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.406);
-    
+    border-radius: 1.5rem;
     position: sticky;
     top: 0;
 }
@@ -85,6 +89,33 @@ header ul li a{
     font-size: 1.125rem;
     color: var(--cor-texto-paragrafo);
     font-weight: 500;
+}
+
+/* efeito nos botões e links */
+header ul li a:hover,
+header h1 a:hover,
+footer a:hover {
+    color: #a6530c;
+}
+
+.hero-section ul li:first-child a:hover,
+.projects-section article a:hover,
+form button:hover{
+    background-color: var(--bg-button-hover-primario);
+    color: var(--cor-texto-button-primario);
+    border: var(--borda-button);
+}
+
+.hero-section ul li:last-child a:hover{
+    background-color: var(--bg-button-hover-secundario);
+    color: var(--cor-texto-button-primario);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+    border: 3px solid var(--cor-foco);
 }
 
 .hero-section{
@@ -113,7 +144,7 @@ h2 span{
     color: transparent;
     background-size: 300% 300%;
     background-position: 0% 50%;
-    animation: animacao-gradiente 4s infinite;
+    animation: animacao-gradiente 5s infinite;
 }
 
 .hero-section p{
@@ -126,7 +157,7 @@ h2 span{
 
 .hero-section ul{
     margin-top: 1rem;
-    width: 100%;
+    width: 90%;
     max-width: 37.5rem;
 
     display: flex;
@@ -158,6 +189,7 @@ form button{
     border: var(--borda-button);
     color: var(--cor-texto-button-secundario);   
 }
+
 
 .about-section, footer{
     background-color: var(--bg-secundario);
@@ -228,8 +260,8 @@ form button{
 }
 
 .projects-section article{
-    /* background-image: linear-gradient(180deg, #000000bb, #0000006f); */
-    background-color: var(--bg-overlay);
+    background-image: linear-gradient(180deg, #000000d3, #00000091);
+    /* background-color: var(--bg-overlay); */
     height: 100%;
     width: 100%;
     padding: 1rem;
@@ -300,6 +332,10 @@ form button{
     height: 3rem;
 }
 
+form button{
+    cursor: pointer;
+}
+
 footer{
     background-color: var(--bg-secundario);
     padding: 1rem;
@@ -322,10 +358,15 @@ footer a{
     align-items: center;
     flex-direction: row-reverse;
     gap: .25rem;
-    color: blue;
+    color: #d97d21;
 }
 
+
 @media screen and (min-width:48rem){
+    header{
+        border-radius: 0;
+    }
+    
     .hero-section ul{
         flex-direction: row;
     }
@@ -367,6 +408,10 @@ footer a{
 }
 
 @media screen and (min-width: 75rem) {
+    header{
+        border-radius: 0;
+    }
+    
     .projects-section ul{
         grid-template-columns: repeat(3,1fr);
     }
